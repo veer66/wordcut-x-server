@@ -7,7 +7,9 @@
                  [compojure "1.6.1"]
                  [org.clojure/data.json "0.2.6"]
                  [ring/ring-defaults "0.3.1"]]
-  :plugins [[lein-ring "0.12.4"]]
+  :plugins [[lein-ring "0.12.4"]
+            [lein-uberwar "0.2.0"]]
+  :uberwar {:handler rockers.veer66.wordcut-x-server.handler/app}
   :ring {:handler rockers.veer66.wordcut-x-server.handler/app}
   :profiles
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]]}})
