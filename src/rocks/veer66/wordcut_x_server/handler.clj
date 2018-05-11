@@ -9,27 +9,17 @@
   (:import rockers.veer66.Wordcut
            rockers.veer66.EdgeType))
 
-
-
-
 (def config (load-string (slurp (clojure.java.io/resource "config.clj"))))
+(def dix-type (:dix-type config))
 
-(def wc (create-wordcut-from-url (:dix-url config)))
+(def dix-url
+  (cond
+    (= dix-type :url) (:dix-url config)
+    (= dix-type :resource) (clojure.java.io/resource (:dix-path config))))
 
-(defn convert-etype [etype]
-  (->> etype
-       .toString
-       str/capitalize))
-
-(defn convert-edge [edge]
-  {:s (.s edge)
-   :e (.e edge)
-   :etype (-> edge
-              .etype
-              convert-etype)})
-
-(defn convert-edges [edges]
-  (map convert-edge edges)) 
+(def wc
+  (cond
+    (= dix-type :url) (create-wordcut-from-url dix-url)))
 
 (defroutes app
   (GET "/" [] "wordcut-x")
