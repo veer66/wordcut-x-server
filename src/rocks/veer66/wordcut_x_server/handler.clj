@@ -15,11 +15,9 @@
 (def dix-url
   (cond
     (= dix-type :url) (:dix-url config)
-    (= dix-type :resource) (clojure.java.io/resource (:dix-path config))))
+    (= dix-type :resource) (.toString (clojure.java.io/resource (:dix-path config)))))
 
-(def wc
-  (cond
-    (= dix-type :url) (create-wordcut-from-url dix-url)))
+(def wc (create-wordcut-from-url dix-url))
 
 (defroutes app
   (GET "/" [] "wordcut-x")
