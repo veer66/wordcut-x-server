@@ -30,7 +30,3 @@ $ curl -d '{"text":"กากกา"}' localhost:3000/wordseg
 $ curl -d '{"text":"กากกา"}' localhost:3000/dag
 [[{"s":0,"e":0,"etype":"Init"}],[{"s":0,"e":1,"etype":"Unk"}],[{"s":0,"e":2,"etype":"Dict"}],[{"s":0,"e":3,"etype":"Dict"}],[{"s":2,"e":4,"etype":"Dict"}],[{"s":3,"e":5,"etype":"Dict"}]]
 ````
-
-## License
-
-Copyright © 2018 Vee Satayamas
