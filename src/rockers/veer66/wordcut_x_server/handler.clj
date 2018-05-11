@@ -9,7 +9,12 @@
   (:import rockers.veer66.Wordcut
            rockers.veer66.EdgeType))
 
-(def wc (create-wordcut-from-url "http://file.veer66.rocks/dix/tdict-std.txt"))
+
+
+
+(def config (load-string (slurp (clojure.java.io/resource "config.clj"))))
+
+(def wc (create-wordcut-from-url (:dix-url config)))
 
 (defn convert-etype [etype]
   (->> etype
