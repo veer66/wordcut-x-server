@@ -1,4 +1,4 @@
-(ns rockers.veer66.wordcut-x-server.handler
+(ns rocks.veer66.wordcut-x-server.handler
   (:require [compojure.core :refer :all]
             [compojure.route :as route]
             [compojure.handler :as handler]
