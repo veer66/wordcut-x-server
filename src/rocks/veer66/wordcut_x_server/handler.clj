@@ -28,5 +28,5 @@
   (POST "/dag" {body :body}
     (let [text (:text (json/read-str (slurp body)
                                      :key-fn keyword))]
-      (json/write-str (build-dag wc text))))
+      (json/write-str {:dag (build-dag wc text)})))
   (route/not-found "Not Found"))
